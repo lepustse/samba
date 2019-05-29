@@ -48,7 +48,11 @@ sudo cp ./smb.conf /etc/samba/smb.conf
 ```
 sudo /etc/init.d/samba restart
 ```
-
+#### 若提示未识别 samba ,可执行
+```
+sudo cp  /etc/cron.daily/samba /etc/init.d/
+sudo /etc/init.d/samba restart
+```
 ### 4.2、windows设置
 1. 添加一个网络位置，如图所示：
 ![1.png](./figure/1.png)
@@ -56,7 +60,7 @@ sudo /etc/init.d/samba restart
 ![3.png](./figure/3.png)
 
 2. 指定网站的位置，如图所示：
-本机ip+个人文件夹
+Ubuntu IP (使用ifconfig查看) + 个人文件夹(在/home下的文件夹)
 ![4.png](./figure/4.png)
 ![5.png](./figure/5.png)
 
