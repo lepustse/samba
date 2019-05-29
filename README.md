@@ -1,33 +1,53 @@
 # samba
-samba配置文件
+samba for Server Message Block
 
 ## 1、介绍
-以前我们在windows上共享文件的话，只需右击要共享的文件夹然后选择共享相关的选项设置即可。然而如何实现windows和linux的文件共享呢？这可以用到`samba`服务。
+samba最初发展的主要目的就是用来沟通windows与uinx这两个不同的平台。时至今日，仍不少开发者需要同时用这两种平台，只是更多虚拟机与主机的方式。虚拟机与主机间的交互，一般有以下几种形式：
+- 共享文件夹
 
-### 1.1、平台
-Ubuntu
+- ftp服务
 
-## 2、应用场合
-虚拟机与主机之间的文件传输
+- samba服务
+
+### 1.2、操作平台
+Ubuntu16.04
+
+## 2、samba常见的应用
+
 
 ## 3、下载与安装
 ### 3.1、下载
-`git clone https://github.com/neverxie/samba.git`
+```
+git clone https://github.com/neverxie/samba.git
+```
 
 ### 3.2、安装samba
-`sudo apt install samba`
+```
+sudo apt install samba
+```
 
-### 3.3、配置文件
-`sudo cp ./smb.conf /etc/samba/smb.conf`
+### 2.2、修改配置文件
+- 先备份当前smb.conf
 
-### 3.4、samba重启生效
-`reboot`
+```
+sudo cp /etc/samba/smb.conf /etc/samba/smb.conf.bak
+```
+- 复制配置文件
+
+```
+sudo cp ./smb.conf /etc/samba/smb.conf
+```
 
 ## 4、使用
 
 ### 4.1、添加用户
 `sudo smbpasswd -a`
 > 温馨提示：samba用户密码设置与本系统密码一致较为方便
+
+#### 4.2、重启samba生效
+```
+sudo /etc/init.d/samba restart
+```
 
 ### 4.2、windows设置
 1. 添加一个网络位置，如图所示：
