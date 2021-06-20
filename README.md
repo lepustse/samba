@@ -44,7 +44,7 @@ sudo cp ./smb.conf /etc/samba/smb.conf
 `sudo smbpasswd -a`
 > 温馨提示：samba用户密码设置与本系统密码一致较为方便
 
-#### 4.2、重启samba生效
+#### 重启samba生效
 ```
 sudo /etc/init.d/samba restart
 ```
@@ -53,6 +53,7 @@ sudo /etc/init.d/samba restart
 sudo cp  /etc/cron.daily/samba /etc/init.d/
 sudo /etc/init.d/samba restart
 ```
+
 ### 4.2、windows设置
 1. 添加一个网络位置，如图所示：
 ![1.png](./figure/1.png)
@@ -66,3 +67,7 @@ Ubuntu IP (使用ifconfig查看) + 个人文件夹(在/home下的文件夹)
 
 3. 添加完毕，如图所示：
 ![6.png](./figure/6.png)
+
+### 4.3、可能会出现的问题
+ubuntu里设置了samba，别的机器仍不能连，且`ssh localhost`也是失败的话
+请安装`openssh-server`
